@@ -29,7 +29,8 @@ struct
   fun clone (SOME s, _) = named s
     | clone _ = new ()
 
-  val prime = clone
+  fun prime (SOME s, _) = named (s ^ "'")
+    | prime _ = new ()
 
   local
     fun print_num i = Int.toString i
