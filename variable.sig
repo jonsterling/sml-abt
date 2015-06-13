@@ -7,7 +7,7 @@ sig
   val compare : t * t -> order
 
   val name : t -> string
-  val to_string : t -> string
+  val toString : t -> string
 
   val clone : t -> t
   val prime : t -> t

@@ -24,7 +24,7 @@ struct
            | x \ E => go (x :: X) Y E
            | p $ Es => Vector.foldl union Y (Vector.map (go X []) Es)
     in
-      fun free_variables M = go [] [] M
+      fun freeVariables M = go [] [] M
     end
 
     local
@@ -34,7 +34,7 @@ struct
            | y \ E => go (y :: X) r (E, x)
            | p $ Es => Vector.foldl (fn (N,r') => r' orelse go X r' (N, x)) r Es
     in
-      fun has_free (M, x) = go [] false (M, x)
+      fun hasFree (M, x) = go [] false (M, x)
     end
   end
 
@@ -45,24 +45,25 @@ struct
     | v' \ e'' => if Variable.eq (v, v') then e' else (v' \\ subst e v e'')
     | p $ es => p $$ Vector.map (subst e v) es
 
-  fun to_string_open F e =
+  fun toStringOpen F e =
     case out e of
-      ` v => Variable.to_string v
+      ` v => Variable.toString v
     | v \ e =>
         let
           val v_str =
-            if has_free (e, v)
-            then Variable.to_string v
-            else "_"
+            if hasFree (e, v) then
+              Variable.toString v
+            else
+              "_"
         in
           v_str ^ "." ^ F e
         end
     | p $ es =>
-        Operator.to_string p ^
+        Operator.toString p ^
           (if Vector.length es = 0 then ""
-             else VectorUtil.to_string F es)
+             else VectorPretty.toString F es)
 
-  fun to_string e = to_string_open to_string e
+  fun toString e = toStringOpen toString e
 
   exception ExpectedBinding of t
 

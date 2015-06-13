@@ -5,6 +5,7 @@ Library
   signature ABT
   signature ABT_UTIL
 
+  structure Arity
   functor Abt
   functor AbtUtil
   functor Variable
@@ -12,14 +13,13 @@ Library
 is
   variable.sig
   operator.sig
-
-  vector_util.sig
+  arity.sml
 
   abt.sig
   abt_util.sig
   abt.fun
   abt_util.fun
-  vector_util.sml
   variable.fun
 
   $/basis.cm
+  vector-lib/vector-lib.cm

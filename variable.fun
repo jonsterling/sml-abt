@@ -32,17 +32,13 @@ struct
   fun prime (SOME s, _) = named (s ^ "'")
     | prime _ = new ()
 
-  local
-    fun print_num i = Int.toString i
-  in
-    fun name (SOME s, x) = s
-      | name (NONE, x) = "@" ^ print_num x
+  fun name (SOME s, x) = s
+    | name (NONE, x) = "@" ^ Int.toString x
 
-    fun to_string (s, x) =
-      case s of
-           NONE => "@" ^ print_num x
-         | SOME s' => s'
-  end
+  fun toString (s, x) =
+    case s of
+         NONE => "@" ^ Int.toString x
+       | SOME s' => s'
 end
 
 structure StringVariable : VARIABLE =
@@ -52,7 +48,7 @@ struct
   val eq : t * t -> bool = op=
   val compare = String.compare
   fun name x = x
-  fun to_string x = x
+  fun toString x = x
   fun clone x = x
   fun prime x = x ^ "'"
 end

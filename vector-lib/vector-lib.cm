@@ -1,0 +1,14 @@
+Library
+  signature VECTOR_PAIR
+  signature VECTOR_PRETTY
+  functor VectorPair
+  functor VectorPretty
+  structure VectorPair
+  structure VectorPretty
+is
+  vector_pair.sig
+  vector_pretty.sig
+  vector_pair.fun
+  vector_pretty.fun
+
+  $/basis.cm
