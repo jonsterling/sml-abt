@@ -1,14 +1,14 @@
 $(SML_LIB)/basis/basis.mlb
 vector-lib/vector-lib.mlb
 local
-  arity.sml
-  variable.sig
-  operator.sig
-  abt.sig
-  abt_util.sig
-  abt.fun
-  abt_util.fun
-  variable.fun
+  src/arity.sml
+  src/variable.sig
+  src/operator.sig
+  src/abt.sig
+  src/abt_util.sig
+  src/abt.fun
+  src/abt_util.fun
+  src/variable.fun
 in
   signature VARIABLE
   signature OPERATOR

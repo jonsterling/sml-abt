@@ -11,15 +11,15 @@ Library
   functor Variable
   structure StringVariable
 is
-  variable.sig
-  operator.sig
-  arity.sml
+  src/variable.sig
+  src/operator.sig
+  src/arity.sml
 
-  abt.sig
-  abt_util.sig
-  abt.fun
-  abt_util.fun
-  variable.fun
+  src/abt.sig
+  src/abt_util.sig
+  src/abt.fun
+  src/abt_util.fun
+  src/variable.fun
 
   $/basis.cm
   vector-lib/vector-lib.cm
