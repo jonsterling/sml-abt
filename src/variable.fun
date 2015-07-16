@@ -1,4 +1,8 @@
-functor Variable () :> VARIABLE =
+functor Variable () :>
+        sig
+            include VARIABLE
+            val new : unit -> t
+        end =
 struct
   type t = string option * int
 
