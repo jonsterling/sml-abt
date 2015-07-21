@@ -70,7 +70,7 @@ struct
     | v \ e'' => v \\ substOperator f p e''
     | p' $ es =>
       let
-        fun g es =  if Operator.eq (p, p') then f es  else p $$ es
+        fun g es = if Operator.eq (p, p') then f es else p' $$ es
       in
         g (Vector.map (substOperator f p) es)
       end
