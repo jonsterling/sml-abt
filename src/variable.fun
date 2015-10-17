@@ -1,8 +1,4 @@
-functor Variable () :>
-        sig
-            include VARIABLE
-            val new : unit -> t
-        end =
+functor Variable () :> VARIABLE =
 struct
   type t = string option * int
 
@@ -51,6 +47,7 @@ struct
   fun named x = x
   val eq : t * t -> bool = op=
   val compare = String.compare
+  fun new _ = "_"
   fun name x = x
   fun toString x = x
   fun clone x = x
